@@ -6,8 +6,7 @@ steps:
     command: |
       julia --project -e '
         using Pkg
-        Pkg.build()
-        Pkg.precompile()
+        include(joinpath(".ci", "build.jl"))
         Pkg.test(; coverage = false)'
     agents:
       queue: "juliagpu"
@@ -23,8 +22,7 @@ steps:
     command: |
       julia --project -e '
         using Pkg
-        Pkg.build()
-        Pkg.precompile()
+        include(joinpath(".ci", "build.jl"))
         Pkg.test(; coverage = false)'
     agents:
       queue: "juliagpu"
