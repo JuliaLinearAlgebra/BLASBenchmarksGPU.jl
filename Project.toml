@@ -1,0 +1,13 @@
+name = "BLASBenchmarksGPU"
+uuid = "7f126dfc-02fe-4b0a-bf44-dbfefac359c9"
+authors = ["JuliaLinearAlgebra", "JuliaGPU", "contributors"]
+version = "0.1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+julia = "1.5"
+
+[targets]
+test = ["Test"]
