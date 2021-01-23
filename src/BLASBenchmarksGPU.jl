@@ -1,5 +1,5 @@
 module BLASBenchmarksGPU
 
-# Write your package code here.
+foo(x) = x + x
 
-end
+end # module
