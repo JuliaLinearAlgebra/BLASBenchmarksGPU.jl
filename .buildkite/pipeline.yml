@@ -3,9 +3,12 @@ steps:
     plugins:
       - JuliaCI/julia#v0.6:
           version: '1.5'
-      - JuliaCI/julia-test#v0.3: ~
-      # - JuliaCI/julia-coverage#v0.3:
-      #     codecov: true
+    command: |
+      julia --project -e '
+        using Pkg
+        Pkg.build()
+        Pkg.precompile()
+        Pkg.test(; coverage = false)'
     agents:
       queue: "juliagpu"
       cuda: "*"
@@ -17,9 +20,12 @@ steps:
     plugins:
       - JuliaCI/julia#v0.6:
           version: 'nightly'
-      - JuliaCI/julia-test#v0.3: ~
-      # - JuliaCI/julia-coverage#v0.3:
-      #     codecov: true
+    command: |
+      julia --project -e '
+        using Pkg
+        Pkg.build()
+        Pkg.precompile()
+        Pkg.test(; coverage = false)'
     agents:
       queue: "juliagpu"
       cuda: "*"
@@ -29,4 +35,3 @@ steps:
 
 env:
   JULIA_PKG_SERVER: "" # it often struggles with our large artifacts
-  # SECRET_CODECOV_TOKEN: ""
