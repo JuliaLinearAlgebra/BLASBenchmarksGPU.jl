@@ -3,7 +3,7 @@ using Documenter
 
 makedocs(;
     modules=[BLASBenchmarksGPU],
-    authors="JuliaLinearAlgebra, JuliaGPU, contributors",
+    authors="Dilum Aluthge, Chris Elrod, Thomas Faingnaert, Tim Besard, and contributors",
     repo="https://github.com/JuliaLinearAlgebra/BLASBenchmarksGPU.jl/blob/{commit}{path}#L{line}",
     sitename="BLASBenchmarksGPU.jl",
     format=Documenter.HTML(;
@@ -13,7 +13,11 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Usage" => "usage.md",
+        "Public API" => "public-api.md",
+        "Internals (Private)" => "internals.md",
     ],
+    strict=true,
 )
 
 deploydocs(;

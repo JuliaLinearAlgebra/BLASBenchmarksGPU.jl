@@ -1,6 +1,13 @@
 using BLASBenchmarksGPU
 using Test
 
+import InteractiveUtils
+import VectorizationBase
+
+include("test-suite-preamble.jl")
+
+@info("VectorizationBase.NUM_CORES is $(VectorizationBase.NUM_CORES)")
+
 @testset "BLASBenchmarksGPU.jl" begin
-    # Write your tests here.
+    @test BLASBenchmarksGPU.foo(1) == 2
 end

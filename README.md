@@ -15,3 +15,7 @@
 [docs-dev-url]: https://JuliaLinearAlgebra.github.io/BLASBenchmarksGPU.jl/dev/
 [codecov-img]: https://codecov.io/gh/JuliaLinearAlgebra/BLASBenchmarksGPU.jl/branch/master/graph/badge.svg?branch=master "Code Coverage"
 [codecov-url]: https://codecov.io/gh/JuliaLinearAlgebra/BLASBenchmarksGPU.jl
+
+BLASBenchmarksGPU is a Julia package for benchmarking BLAS libraries on GPUs.
+
+Please see the [documentation][docs-stable-url].
