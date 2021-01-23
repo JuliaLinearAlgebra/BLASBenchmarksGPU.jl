@@ -6,8 +6,8 @@ steps:
     command: |
       julia --project -e '
         using Pkg
-        Pkg.pkg"add CUDA#master"
         Pkg.build()
+        Pkg.precompile()
         Pkg.test(; coverage = false)'
     agents:
       queue: "juliagpu"
@@ -23,8 +23,8 @@ steps:
     command: |
       julia --project -e '
         using Pkg
-        Pkg.pkg"add CUDA#master"
         Pkg.build()
+        Pkg.precompile()
         Pkg.test(; coverage = false)'
     agents:
       queue: "juliagpu"
