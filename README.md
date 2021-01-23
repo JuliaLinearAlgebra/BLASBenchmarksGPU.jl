@@ -4,6 +4,11 @@
 [![Documentation (development)][docs-dev-img]][docs-dev-url]
 [![Code Coverage][codecov-img]][codecov-url]
 
+| Julia   | CUDA CI (Buildkite) |
+| ------- | ------------------- |
+| 1.5     |                     |
+| nightly |                     |
+
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg "Documentation (stable)"
 [docs-stable-url]: https://JuliaLinearAlgebra.github.io/BLASBenchmarksGPU.jl/stable/
 [docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg "Documentation (development)"
