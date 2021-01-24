@@ -1,8 +1,10 @@
-using InteractiveUtils: versioninfo
+import InteractiveUtils
+import LinearAlgebra
 
-versioninfo()
+InteractiveUtils.versioninfo(stdout; verbose = true)
+LinearAlgebra.versioninfo(stdout)
 
-@info("Running tests with $(Threads.nthreads()) threads")
+@info("Threads.nthreads() is $(Threads.nthreads())")
 
 function is_coverage()
     return !iszero(Base.JLOptions().code_coverage)

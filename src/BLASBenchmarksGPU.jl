@@ -1,5 +1,5 @@
 module BLASBenchmarksGPU
 
-foo(x) = x + x
+import GemmKernels
 
 end # module
