@@ -33,3 +33,4 @@ steps:
 
 env:
   JULIA_PKG_SERVER: "" # it often struggles with our large artifacts
+  PYTHON: "" # tells PyCall.jl to install its own Python via Conda.jl
