@@ -5,8 +5,8 @@ import CUDA
 import InteractiveUtils
 import LinearAlgebra
 
-include("test-suite-preamble.jl")
-
+InteractiveUtils.versioninfo(stdout; verbose = true)
+LinearAlgebra.versioninfo(stdout)
 CUDA.versioninfo(stdout)
 @info "" [CUDA.capability(dev) for dev in CUDA.devices()]
 
