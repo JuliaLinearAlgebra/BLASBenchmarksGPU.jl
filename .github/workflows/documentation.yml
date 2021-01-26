@@ -22,8 +22,13 @@ jobs:
             using Pkg
             include(joinpath(".ci", "build.jl"))
             Pkg.develop(PackageSpec(path=pwd()))
-            Pkg.instantiate()'
+            Pkg.instantiate()
+            Pkg.build()
+            Pkg.precompile()'
+        env:
+          PYTHON: ""
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+          PYTHON: ""
