@@ -1,20 +1,4 @@
 steps:
-  - label: "Julia 1.5"
-    plugins:
-      - JuliaCI/julia#v0.6:
-          version: '1.5'
-    command: |
-      julia --project -e '
-        using Pkg
-        include(joinpath(".ci", "build.jl"))
-        Pkg.test(; coverage = false)'
-    agents:
-      queue: "juliagpu"
-      cuda: "*"
-      cap: "recent"
-    if: build.message !~ /\[skip tests\]/
-    timeout_in_minutes: 60
-    
   - label: "Julia 1.6-nightly"
     plugins:
       - JuliaCI/julia#v0.6:
