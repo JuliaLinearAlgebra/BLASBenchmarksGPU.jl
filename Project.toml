@@ -1,7 +1,7 @@
 name = "BLASBenchmarksGPU"
 uuid = "7f126dfc-02fe-4b0a-bf44-dbfefac359c9"
 authors = ["Dilum Aluthge", "Chris Elrod", "Thomas Faingnaert", "Tim Besard", "contributors"]
-version = "0.1.0-DEV"
+version = "0.1.0"
 
 [deps]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
