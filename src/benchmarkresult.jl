@@ -13,7 +13,7 @@ function benchmark_result_df(benchmark_result::BenchmarkResult)
 end
 
 function Base.show(io::IO, br::BenchmarkResult{TA, TB, TC}) where {TA, TB, TC}
-    println(io, "Bennchmark Result of Matrix{$TC}=Matrix{$TA}×Matrix{$TB}")
+    println(io, "Benchmark Result of Matrix{$TC}=Matrix{$TA}×Matrix{$TB}")
     println(io, br.df)
     return nothing
 end
