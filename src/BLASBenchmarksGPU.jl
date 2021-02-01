@@ -1,9 +1,10 @@
 module BLASBenchmarksGPU
 
 import BenchmarkTools
-import CUDA
+using CUDA
 import DataFrames
 import GemmKernels
+using Tullio, KernelAbstractions
 import Plots
 import PyPlot
 import ProgressMeter
