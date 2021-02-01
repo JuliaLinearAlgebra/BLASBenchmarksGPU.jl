@@ -20,6 +20,7 @@ function runbench(::Val{:CUDA}, ::Type{TA}, ::Type{TB}, ::Type{TC};
     _sizes_column = Vector{Int}(undef, 0)
     _libraries_column = Vector{Symbol}(undef, 0)
     _tflops_column = Vector{Float64}(undef, 0)
+    _gflops_column = Vector{Float64}(undef, 0)
     _times_column = Vector{Float64}(undef, 0)
     p = ProgressMeter.Progress(length(sizes_vec))
     warmed_up = falses(length(sizes_vec))
@@ -56,11 +57,13 @@ function runbench(::Val{:CUDA}, ::Type{TA}, ::Type{TB}, ::Type{TC};
             t_ns = Base.time(point_estimate) # time in nanoseconds
             t_ps = 1_000 * t_ns # time in picoseconds
             flops_factor = 2
+            gflops = flops_factor * M * K * N / t_ns # gigaflops
             tflops = flops_factor * M * K * N / t_ps # teraflops
             push!(showvalues, (lib, "$(round(tflops; digits = 2)) TFLOPS"))
             push!(_sizes_column, sz)
             push!(_libraries_column, lib)
             push!(_tflops_column, tflops)
+            push!(_gflops_column, gflops)
             push!(_times_column, t_ns)
         end
         ProgressMeter.next!(p; showvalues = showvalues)
@@ -70,8 +73,9 @@ function runbench(::Val{:CUDA}, ::Type{TA}, ::Type{TB}, ::Type{TC};
     df = DataFrames.DataFrame(
         Size = _sizes_column,
         Library = _libraries_column,
-        TFLOPS = _tflops_column,
-        Time = _times_column,
+        TFLOPS = _tflops_column, # teraflops
+        GFLOPS = _gflops_column, # gigaflops
+        Time = _times_column,    # time in nanoseconds
     )
     benchmark_result = BenchmarkResult{TA, TB, TC}(df)
     return benchmark_result
