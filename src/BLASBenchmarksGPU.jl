@@ -1,16 +1,20 @@
 module BLASBenchmarksGPU
 
 import BenchmarkTools
-using CUDA
+import CUDA
 import DataFrames
 import GemmKernels
-using Tullio, KernelAbstractions
+import KernelAbstractions
 import Plots
 import PyPlot
 import ProgressMeter
 import Random
 import Statistics
 import StatsPlots
+import Tullio
+
+using CUDA               # this `using` statement is required to use Tullio on the GPU
+using KernelAbstractions # this `using` statement is required to use Tullio on the GPU
 
 export benchmark_result_df
 export benchmark_result_types

@@ -16,7 +16,8 @@ CUDA.versioninfo(stdout)
     TA = Float16
     TB = Float16
     TC = Float32
-    sizes = [2^n for n in 7:10]
+    sizes = [2^n for n in 7:9]
+    @info "" backend TA TB TC sizes
     bench_result = BLASBenchmarksGPU.runbench(
         backend,
         TA,
