@@ -1,8 +1,8 @@
 steps:
-  - label: "Julia 1.5"   # TODO: change this to: label: "Julia 1"
+  - label: "Julia 1"
     plugins:
       - JuliaCI/julia#v1:
-          version: "1.5" # TODO: change this to: version: "1"
+          version: "1"
       - JuliaCI/julia-test#v1:
           coverage: false
     agents:
