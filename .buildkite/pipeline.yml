@@ -1,36 +1,28 @@
 steps:
-  - label: "Julia 1.6-nightly"
+  - label: "Julia 1.5"   # TODO: change this to: label: "Julia 1"
     plugins:
-      - JuliaCI/julia#v0.6:
-          version: '1.6-nightly'
-    command: |
-      julia --project -e '
-        using Pkg
-        include(joinpath(".ci", "build.jl"))
-        Pkg.test(; coverage = false)'
+      - JuliaCI/julia#v1:
+          version: "1.5" # TODO: change this to: version: "1"
+      - JuliaCI/julia-test#v1:
+          coverage: false
     agents:
-      queue: "juliagpu"
+      cap: "recent" # this is required because GemmKernels needs a GPU with Tensor Cores
       cuda: "*"
-      cap: "recent"
-    if: build.message !~ /\[skip tests\]/
+      queue: "juliagpu"
     timeout_in_minutes: 60
 
   - label: "Julia nightly"
     plugins:
-      - JuliaCI/julia#v0.6:
-          version: 'nightly'
-    command: |
-      julia --project -e '
-        using Pkg
-        include(joinpath(".ci", "build.jl"))
-        Pkg.test(; coverage = false)'
+      - JuliaCI/julia#v1:
+          version: "nightly"
+      - JuliaCI/julia-test#v1:
+          coverage: false
     agents:
-      queue: "juliagpu"
+      cap: "recent" # this is required because GemmKernels needs a GPU with Tensor Cores
       cuda: "*"
-      cap: "recent"
-    if: build.message !~ /\[skip tests\]/
+      queue: "juliagpu"
     timeout_in_minutes: 60
 
 env:
   JULIA_PKG_SERVER: "" # it often struggles with our large artifacts
-  PYTHON: "" # tells PyCall.jl to install its own Python via Conda.jl
+  PYTHON: ""           # tells PyCall.jl to install its own Python via Conda.jl
