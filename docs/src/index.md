@@ -13,4 +13,4 @@ The source code for this package is available in the
 ## Related Packages
 
 You may also be interested in:
-1. [BLASBenchmarksCPU.jl](https://github.com/chriselrod/BLASBenchmarksCPU.jl)
+1. [BLASBenchmarksCPU.jl](https://github.com/JuliaLinearAlgebra/BLASBenchmarksCPU.jl)
