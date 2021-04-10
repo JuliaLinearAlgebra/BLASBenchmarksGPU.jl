@@ -19,7 +19,7 @@ Tullio = "bc48ee85-29a4-5162-ae0b-a64e1601d4bc"
 
 [compat]
 BenchmarkTools = "0.5"
-CUDA = "2"
+CUDA = "2, 3.0"
 DataFrames = "0.22"
 GemmKernels = "0.1"
 KernelAbstractions = "0.5"
